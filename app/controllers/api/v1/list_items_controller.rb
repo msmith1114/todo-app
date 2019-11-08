@@ -1,5 +1,14 @@
 class Api::V1::ListItemsController < ApplicationController
 
+    def index
+        @list = List.find(params[:list_id])
+        puts @list
+        respond_to do |format|
+          format.json { render json: @list.list_items.order(:id) }
+        end
+      end
+
+
     def create
         @list = List.find(params[:list_id])
         @list_item = @list.list_items.create(list_item_params)

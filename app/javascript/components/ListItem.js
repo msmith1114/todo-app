@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-const ListItem = ({list ,addNewListItem=f=>f}) =>
+const ListItem = (props) =>
     <div className="list-item" >
-    <button onClick={() => addNewListItem(list.id, "test")}>Add</button>
+        <p>List Item:{props.listItem.content}</p>
     </div>
     
 export default ListItem;

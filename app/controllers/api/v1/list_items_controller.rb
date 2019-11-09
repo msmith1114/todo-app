@@ -1,8 +1,8 @@
 class Api::V1::ListItemsController < ApplicationController
+  before_action :set_listItem, only: [:show, :update, :destroy]
 
     def index
         @list = List.find(params[:list_id])
-        puts @list
         respond_to do |format|
           format.json { render json: @list.list_items.order(:id) }
         end
@@ -20,11 +20,20 @@ class Api::V1::ListItemsController < ApplicationController
         
     end
 
-    def destroy 
-
+    def destroy
+      @listItem.destroy
+      if @listItem.destroy
+        head :no_content, status: :ok
+      else
+        render json: @listItem.errors, status: :unprocessable_entity
+      end      
     end
 
     private
+
+    def set_listItem
+      @listItem = ListItem.find(params[:id])
+    end
 
     def list_item_params
         params.require(:list_item).permit(:content)

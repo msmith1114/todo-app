@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 const ListItem = (props) =>
     <div className="list-item" >
-        <p>List Item:{props.listItem.content}</p>
+        {props.listItem.content}
+        <button className="float-right btn btn-outline-danger btn-sm" onClick={() => props.removeListItem(props.listItem.id)}>Delete</button>
     </div>
     
 export default ListItem;

@@ -7,9 +7,17 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+import "bootstrap"
+import "../stylesheets/application"
+
 import React from 'react';
 import { render } from 'react-dom';
 import App from '../components/App';
+
+document.addEventListener('turbolinks:load', () => {
+  $('[data-toggle="tooltip"]').tooltip()
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   render(<App />, document.querySelector('#app'));

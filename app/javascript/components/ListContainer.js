@@ -63,21 +63,22 @@ class ListContainer extends Component {
             description: description
         })
         .then(response => {
-            console.log("Response")
             console.log(response)
             const lists = this.state.lists.map((list) => {
-                if(list.id == id)
+                if(list.id === id)
                 {
+                    list.title = title
+                    list.description = description
                     list.isEditing = false
                 }
                 return list
             })
-            //this.setState({lists})
+            this.setState({lists})
         })
         .catch(error => {
             console.log(error)
         })
-        this.setState({lists})
+
     }
 
     removeList = (id) => {
@@ -94,19 +95,31 @@ class ListContainer extends Component {
     render() {
         return (
             <div className="lists-container">
-            {console.log(this.state)}
-                {this.state.lists.map( list => {
-                    if(list.isEditing == false)
-                        {
-                            return (<List list={list} key={list.id} onRemoveList={this.removeList} onUpdateList={this.editList} />)
-                        }
-                    else
-                        {
-                            return (<ListForm handleSubmit={this.updateList} key={list.id} title={list.title} description={list.description} id={list.id}  />)
-                        }
-
-                })}
-                <ListForm handleSubmit={this.addNewList} />
+                <div className="row mt-4">
+                    {this.state.lists.map( list => {
+                        if(list.isEditing == false)
+                            {
+                                
+                                return (
+                                    <div className="col-6 mt-2 mb-2" key={list.id} >
+                                        <List list={list}onRemoveList={this.removeList} onUpdateList={this.editList} />
+                                    </div>
+                                )
+                            }
+                        else
+                            {
+                                
+                                return (
+                                    <div className="col-6 mt-2 mb-2" key={list.id} >
+                                        <ListForm handleSubmit={this.updateList} title={list.title} description={list.description} id={list.id}  />
+                                    </div>
+                                )
+                            }
+                    })}
+                </div>
+                <div className="lists-new-form mt-5">
+                    <ListForm handleSubmit={this.addNewList} />
+                </div>
             </div>
         )
     }

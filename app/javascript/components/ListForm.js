@@ -4,9 +4,9 @@ class ListForm extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        id: props.id,
-        title: props.title,
-        description: props.description
+        id: props.id || '',
+        title: props.title || '',
+        description: props.description || ''
       };
     }
   

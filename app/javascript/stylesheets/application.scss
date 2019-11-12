@@ -1,1 +1,42 @@
 @import "~bootstrap/scss/bootstrap";
+
+.list-group-item {
+    border: none;
+    padding: 15px;
+}
+
+.card {
+    box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.listitem-input {
+    box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.list-group-item:hover {
+    background-color: #F5F8FC;
+}
+
+.card-body {
+    font-size: 14px;
+    font-weight: semibold;
+    color: #4A4A4A;
+    background-color: #F2F2F2;
+}
+
+.list-group-item button {
+    display: none;
+}
+
+.list-group-item:hover button{
+    display: inline-block;
+    color: #0954AB;
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    text-decoration: underline;
+    cursor: pointer;
+}

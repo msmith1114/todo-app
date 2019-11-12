@@ -81,12 +81,12 @@ class List extends Component {
                 </ul>
             </div>
                 <form>
-                    <div className="form-group">
+                    <div className="form-group listitem-input">
                         <input className="form-control" placeholder="...." value={this.state.newItem} onChange={this.handleChange}/>
                     </div>
-                        <button className="btn btn-primary btn-sm mx-1" onClick={() => this.addNewListItem(this.props.list.id, this.state.newItem)}>Add Item</button>
-                        <button className="btn btn-info btn-sm mx-1" onClick={() => this.props.onUpdateList(this.props.list.id)}>Update</button>
-                        <button className="btn btn-danger btn-sm mx-1" onClick={() => this.props.onRemoveList(this.props.list.id)}>Erase</button>
+                        <button type="button" className="btn btn-primary btn-sm mx-1" onClick={() => this.addNewListItem(this.props.list.id, this.state.newItem)}>Add Item</button>
+                        <button type="button" className="btn btn-info btn-sm mx-1" onClick={() => this.props.UpdateList(this.props.list.id)}>Update</button>
+                        <button type="button" className="btn btn-danger btn-sm mx-1" onClick={() => this.props.RemoveList(this.props.list.id)}>Erase</button>
                 </form>
             </div>
             

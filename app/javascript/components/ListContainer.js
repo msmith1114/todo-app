@@ -97,12 +97,12 @@ class ListContainer extends Component {
             <div className="lists-container">
                 <div className="row mt-4">
                     {this.state.lists.map( list => {
-                        if(list.isEditing == false)
+                        if(list.isEditing == true)
                             {
                                 
                                 return (
                                     <div className="col-6 mt-2 mb-2" key={list.id} >
-                                        <List list={list}onRemoveList={this.removeList} onUpdateList={this.editList} />
+                                        <ListForm handleSubmit={this.updateList} title={list.title} description={list.description} id={list.id}  />
                                     </div>
                                 )
                             }
@@ -111,7 +111,7 @@ class ListContainer extends Component {
                                 
                                 return (
                                     <div className="col-6 mt-2 mb-2" key={list.id} >
-                                        <ListForm handleSubmit={this.updateList} title={list.title} description={list.description} id={list.id}  />
+                                        <List list={list}onRemoveList={this.removeList} UpdateList={this.editList} />
                                     </div>
                                 )
                             }
